@@ -1,7 +1,7 @@
 {
   "name": "my_gulp_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "my_gulp_project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-ruby-sass": "^1.0.5"
   }
 }
