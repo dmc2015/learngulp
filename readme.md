@@ -14,6 +14,10 @@ Other Tidbits About Gulp
 
 There are plenty of tutorials available online and there is no reason for me to add them unless I find something different or better to contributue. Instead I have a repo that goes through these tutorials and links to these tutorials are below. If you have any questions please feel free to reference my <a href="">repo</a> and ask me any questions.
 
+A List of All Gulp Plugins
+
+http://gulpjs.com/plugins/
+
 Tutorials.md
 
 http://hmphry.com/gulp/
