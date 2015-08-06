@@ -8,7 +8,7 @@ var sassRoot = 'build/sass/';
 //Gulp Task
 gulp.task('sass-to-css', function(){
 	return gulp.src(sassRoot+'main.scss')
-	.pipe(sass({sourcemapp: true}))
+	.pipe(sass({sourcemap: true}))
 	.pipe(gulp.dest('public/css'));
 });
 
