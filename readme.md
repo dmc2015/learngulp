@@ -28,7 +28,52 @@ http://gulpjs.com/plugins/
 Tutorials.md
 
 http://hmphry.com/gulp/
+
+You will get an error similar to
+"TypeError: Arguments to path.join must be strings
+    at Object.posix.join (path.js:488:13)..."
+
+
+If you Google it will say something along the lines of
+Paraphrase:
+"gulp.src(...) no longer being valid and that it changed to replaced with gulp-ruby-sass."
+
+Reference: http://stackoverflow.com/questions/28140012/gulp-typeerror-arguments-to-path-join-must-be-strings
+
+In this particular tutorial the issue is related to sourcemaps, look up the docs for sourcemaps to learn more but this syntax will work:
+
+//Requirements
+var gulp = require('gulp');
+var sass = require('gulp-ruby-sass');
+var sourcemaps = require('gulp-sourcemaps');
+
+//Defines Path to SaSS
+var sassRoot = 'build/sass/';
+
+//Gulp Task SASS
+gulp.task('sass-to-css', function(){
+	return sass(sassRoot+'main.sass', {style: 'expanded'}, {sourcemap: 'true'})
+	.pipe(sourcemaps.write())
+	.pipe(gulp.dest('public/css'));
+});
+
+
+If you want to use sourcemaps directly via a pipe,
+
+".pipe(sourcemaps.write())"
+
+You will need to require it prior
+"var sourcemaps = require('gulp-sourcemaps');"
+
+Otherwise you don't need to require it.
+
+
+
+
 https://travismaynard.com/writing/getting-started-with-gulp
+
+Good tutorial but no samples to concat, expand, etc.
+
 https://scotch.io/tutorials/automate-your-tasks-easily-with-gulp-js
 http://leveluptuts.com/tutorials/learning-gulp/1-installing-introducing-gulp
 http://code.tutsplus.com/tutorials/managing-your-build-tasks-with-gulpjs--net-36910
