@@ -6,7 +6,7 @@ that may take a human significantly more time to perform. These changes are usua
 
 Other Tidbits About Gulp
 
--Gulp is code over configuration, allowing for custmization.
+-Gulp is code over configuration, allowing for customization.
 
 -Gulp is a build framework, a framework that helps get a project ready for a production environment. A build framework may not be able to get the entire project ready for production, enter build systems.
 
@@ -76,5 +76,6 @@ Good tutorial but no samples to concat, expand, etc.
 
 https://scotch.io/tutorials/automate-your-tasks-easily-with-gulp-js
 http://leveluptuts.com/tutorials/learning-gulp/1-installing-introducing-gulp
+
 http://code.tutsplus.com/tutorials/managing-your-build-tasks-with-gulpjs--net-36910
 http://www.sitepoint.com/introduction-gulp-js/
