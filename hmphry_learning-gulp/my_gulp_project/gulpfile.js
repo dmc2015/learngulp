@@ -1,7 +1,9 @@
 //Requirements
-var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
-var sourcemaps = require('gulp-sourcemaps');
+var gulp = require('gulp'),
+	sass = require('gulp-ruby-sass'),
+	sourcemaps = require('gulp-sourcemaps'),
+	prefix = require('gulp-autoprefixer');
+
 
 //Defines Path to SaSS
 var sassRoot = 'build/sass/';
@@ -25,11 +27,16 @@ gulp.task('sass-to-css', function(){
             console.error('Error!', err.message);
         })
 	.pipe(sourcemaps.write())
+	.pipe(prefix())
 	.pipe(gulp.dest('public/css'));
 });
 
 
-
+gulp.task('watch-sass', function(){
+	gulp.watch('build/sass/main.sass', function(){
+		gulp.run('sass-to-css');
+	})
+})
 
 // gulp.task('styles', function() {
 // return sass('build/scss', { style: 'expanded' })
