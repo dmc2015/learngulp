@@ -16,10 +16,74 @@ There are plenty of tutorials available online and there is no reason for me to 
 
 Gulp only has 5 methods:
 task
-run
-watch
+  gulp.task(nameOftheTask, [subTask, subTask, subTask], function(){
+
+    });
+
+  gulp.task(nameOftheTask, function(){
+
+    });
+
+    the first argument is the name of the given task, the array of arguments is a group of tasks that this task will run when executed and the function contains
+    anything specifically you would want done with the task that was named.
+
+
 src
+  gulp.src
+
+  gulp.task('scripts', function(){
+    return gulp.src('js/*.js')
+      .pipe(concat('all.js'))
+    });
+
+    a return is used at the beginning of the task followed by the gulp.src.
+    gulp.src defines the files that we would like to use in a task, after the method that sources the files to be modified pipes are usually utilized to do additional methods
+    to these files.
+
+
 dest
+  gulp.dest
+
+  Assigns the location where the output of the task should be placed. The below example will run from the command line with
+  'gulp scripts'
+  The gulp.src will go to the directory 'js' and all the files with the extension in this folder of '.js'.
+  Concat will concatenate all of these files into 'all.js'
+  Then move the file to the folder 'dist'
+
+  gulp.task('scripts', function(){
+    return gulp.src('js/*.js')
+      .pipe(concat('all.js'))
+      .pipe(gulp.dest('dist'))
+    });
+
+
+watch
+  gulp.watch
+
+gulp.watch('js/*.js', [lint, scripts, concat]);
+gulp.watch('sass/*.sass', [sass-to-css]);
+
+The watch function watches the specified directory in its first argument and then it executes the tasks in the second argument (array) when the files of the first
+argument change.
+
+Additional modifications can be made to this format like setting up a call back:
+
+gulp.watch('js/**/*.js', function(event) {
+  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+});
+
+Another pattern sets up the gulp watch as a variable and is capable of adding other events to it:
+
+var watcher = gulp.watch('js/**/*.js', ['uglify','reload']);
+watcher.on('change', function(event) {
+  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+});
+
+
+See the documentation for additional information:
+https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpwatchglob--opts-tasks-or-gulpwatchglob--opts-cb
+
+
 
 A List of All Gulp Plugins
 
